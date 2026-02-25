@@ -1,0 +1,44 @@
+# CI workflow. Customize for your stack.
+# See: https://docs.github.com/en/actions
+
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  markdown:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      - run: npx prettier --check "**/*.md"
+      - run: npm install -g markdownlint-cli2
+      - run: markdownlint-cli2 "**/*.md"
+
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # Add your stack's setup and commands. Examples:
+      # Python (uv):
+      #   - uses: astral-sh/setup-uv@v4
+      #   - run: uv sync && uv run pytest
+      # Node:
+      #   - uses: actions/setup-node@v4
+      #     with: { node-version: 'lts/*' }
+      #   - run: npm ci && npm test
+      # Rust:
+      #   - uses: dtolnay/rust-toolchain@stable
+      #   - run: cargo test
+      # Go:
+      #   - uses: actions/setup-go@v5
+      #     with: { go-version: 'stable' }
+      #   - run: go test ./...
+      - name: Placeholder
+        run: echo "Add your CI steps above"

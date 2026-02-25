@@ -1,0 +1,27 @@
+# Pre-commit hooks. Add stack-specific hooks for your project.
+# See https://pre-commit.com/hooks.html
+# Python: ruff, mypy. Node: eslint. Rust: cargo fmt. Go: gofmt.
+
+repos:
+  - repo: local
+    hooks:
+      - id: prettier
+        name: prettier
+        entry: npx prettier@3 --write
+        language: system
+        types: [markdown]
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.21.0
+    hooks:
+      - id: markdownlint-cli2
+        args: [--fix]
+  # Add your stack's hooks. Examples:
+  # - repo: https://github.com/astral-sh/ruff-pre-commit
+  #   rev: v0.8.0
+  #   hooks:
+  #     - id: ruff
+  #       args: [--fix]
+  # - repo: https://github.com/pre-commit/mirrors-eslint
+  #   rev: v9.0.0
+  #   hooks:
+  #     - id: eslint
