@@ -19,5 +19,6 @@
 # lint   = "npm run lint"            # Node
 # check  = "mise run lint && mise run test"
 test = "echo 'Add your test command to mise.toml'"
-lint = "echo 'Add your lint command to mise.toml'"
+lint = "npx markdownlint-cli2 \"**/*.md\""
 check = "mise run lint && mise run test"
+format = "npx prettier --write \"**/*.{md,yaml,yml,json}\" \".prettierrc\" \".prettierrc.*\" \"**/.prettierrc\" \"**/.prettierrc.*\""

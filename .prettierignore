@@ -1,7 +1,21 @@
-node_modules
-.git
-.venv
-venv
-dist
-build
-coverage
+# Dependencies
+node_modules/
+
+# Lock files (auto-generated)
+package-lock.json
+
+# Build outputs
+dist/
+build/
+*.min.js
+
+# Version control
+.git/
+
+# Python / virtual environments
+.uv/
+.venv/
+venv/
+
+# Testing
+coverage/
