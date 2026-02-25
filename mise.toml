@@ -1,0 +1,23 @@
+# mise: package and tool management
+# Customize [tools] and [tasks] for your stack.
+# Examples: uv (Python), node (JS), cargo (Rust), go (Go)
+
+[tools]
+# Python example:
+# uv = "latest"
+# Node example:
+# node = "lts"
+# Rust: use rustup, or ensure rust in PATH
+
+[tasks]
+# Replace with your stack's commands. Examples:
+# test   = "uv run pytest"           # Python
+# test   = "npm test"                # Node
+# test   = "cargo test"              # Rust
+# test   = "go test ./..."           # Go
+# lint   = "uv run ruff check ."     # Python
+# lint   = "npm run lint"            # Node
+# check  = "mise run lint && mise run test"
+test = "echo 'Add your test command to mise.toml'"
+lint = "echo 'Add your lint command to mise.toml'"
+check = "mise run lint && mise run test"
