@@ -9,7 +9,7 @@ repos:
         name: prettier
         entry: npx prettier@3 --write
         language: system
-        types: [markdown]
+        types: [markdown, yaml, json]
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.21.0
     hooks:

@@ -10,16 +10,16 @@ on:
     branches: [main]
 
 jobs:
-  markdown:
+  format:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
-      - run: npx prettier --check "**/*.md"
-      - run: npm install -g markdownlint-cli2
-      - run: markdownlint-cli2 "**/*.md"
+      - run: npm install
+      - run: npx prettier --check "**/*.{md,yaml,yml,json}" ".prettierrc" ".prettierrc.*" "**/.prettierrc" "**/.prettierrc.*"
+      - run: npx markdownlint-cli2 "**/*.md"
 
   check:
     runs-on: ubuntu-latest
