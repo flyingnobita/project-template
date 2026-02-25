@@ -5,16 +5,30 @@
 repos:
   - repo: local
     hooks:
-      - id: prettier
-        name: prettier
-        entry: npx prettier@3 --write
+      - id: prettier-fix
+        name: prettier (fix)
+        entry: npx prettier@3 --write "**/*.{md,yaml,yml,json}" ".prettierrc"
         language: system
-        types: [markdown, yaml, json]
-  - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.21.0
-    hooks:
-      - id: markdownlint-cli2
-        args: [--fix]
+        pass_filenames: false
+        always_run: true
+      - id: prettier-check
+        name: prettier (check)
+        entry: npx prettier@3 --check "**/*.{md,yaml,yml,json}" ".prettierrc"
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: markdownlint-fix
+        name: markdownlint-cli2 (fix)
+        entry: npx markdownlint-cli2 --fix "**/*.md"
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: markdownlint-check
+        name: markdownlint-cli2 (check)
+        entry: npx markdownlint-cli2 "**/*.md"
+        language: system
+        pass_filenames: false
+        always_run: true
   # Add your stack's hooks. Examples:
   # - repo: https://github.com/astral-sh/ruff-pre-commit
   #   rev: v0.8.0

@@ -14,12 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: jdx/mise-action@v2
       - uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
-      - run: npm install
-      - run: npx prettier --check "**/*.{md,yaml,yml,json}" ".prettierrc" ".prettierrc.*" "**/.prettierrc" "**/.prettierrc.*"
-      - run: npx markdownlint-cli2 "**/*.md"
+      - run: mise run lint
 
   check:
     runs-on: ubuntu-latest
@@ -40,5 +39,8 @@ jobs:
       #   - uses: actions/setup-go@v5
       #     with: { go-version: 'stable' }
       #   - run: go test ./...
-      - name: Placeholder
-        run: echo "Add your CI steps above"
+      - uses: jdx/mise-action@v2
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "lts/*"
+      - run: mise run check

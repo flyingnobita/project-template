@@ -3,6 +3,7 @@
 # Examples: uv (Python), node (JS), cargo (Rust), go (Go)
 
 [tools]
+"pipx:pre-commit" = "latest"
 # Python example:
 # uv = "latest"
 # Node example:
@@ -19,6 +20,10 @@
 # lint   = "npm run lint"            # Node
 # check  = "mise run lint && mise run test"
 test = "echo 'Add your test command to mise.toml'"
-lint = "npx markdownlint-cli2 \"**/*.md\""
+prettier-fix = "npx prettier --write \"**/*.{md,yaml,yml,json}\" \".prettierrc\""
+prettier-check = "npx prettier --check \"**/*.{md,yaml,yml,json}\" \".prettierrc\""
+markdownlint-fix = "npx markdownlint-cli2 --fix \"**/*.md\""
+markdownlint-check = "npx markdownlint-cli2 \"**/*.md\""
+format = "mise run prettier-fix && mise run markdownlint-fix"
+lint = "mise run prettier-check && mise run markdownlint-check"
 check = "mise run lint && mise run test"
-format = "npx prettier --write \"**/*.{md,yaml,yml,json}\" \".prettierrc\" \".prettierrc.*\" \"**/.prettierrc\" \"**/.prettierrc.*\""
