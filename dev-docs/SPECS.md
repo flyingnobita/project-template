@@ -71,9 +71,10 @@ src/
 | --------------- | -------------------------- |
 | Package manager | mise, npm, cargo, go mod   |
 | Test framework  | (pytest, jest, cargo test) |
-| Formatter       | prettier                   |
+| Formatter       | prettier (see `package.json`) |
+| Format task     | `mise run format` (md, yaml, yml, json) |
 | Type Checker    | (mypy)                     |
-| Linter          | markdownlint-cli2(md)      |
+| Linter          | markdownlint-cli2 (md)     |
 | CI              | GitHub Actions             |
 
 ### Line endings (cross-platform)

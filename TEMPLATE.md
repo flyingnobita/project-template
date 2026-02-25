@@ -9,7 +9,7 @@ Instructions for using this repo as a template and what to customize.
 | Item        | Purpose                                                       |
 | ----------- | ------------------------------------------------------------- |
 | `README.md` | Project overview, setup, usage                                |
-| `mise.toml` | Tool versions and tasks (uv, test, lint)                      |
+| `mise.toml` | Tool versions and tasks (test, lint, format)                  |
 | `AGENTS.md` | Project-specific AI instructions; extend/override agent rules |
 
 ## Git
@@ -29,12 +29,14 @@ enforces `end_of_line = lf` in editors.
 
 | Item                 | Purpose                                        |
 | -------------------- | ---------------------------------------------- |
+| `package.json`       | Prettier (and other) dev dependencies          |
 | `.prettierrc`        | Prettier config (format first)                 |
+| `.prettierignore`    | Files/dirs Prettier skips                      |
 | `.markdownlint.yaml` | Markdownlint config                            |
 | `.editorconfig`      | Indent, line endings, charset (cross-platform) |
 
-**Other nice-to-haves:** Broaden `.gitignore` with patterns for Node, Rust, Go,
-etc.
+**Tasks:** `mise run format` formats md, yaml, yml, json. Broaden `.gitignore`
+with patterns for Node, Rust, Go, etc. as needed.
 
 ## Dev Docs
 

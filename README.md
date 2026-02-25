@@ -6,8 +6,9 @@ Brief description of the project.
 
 1. Copy `.env.example` to `.env` — API keys, tokens only
 2. Copy `config.toml.example` to `config.toml` — paths, retention, log level
-3. Install tools (see `mise.toml` or your stack's package manager)
-4. Run the project
+3. Run `npm install` (or `pnpm install`) — Prettier and other dev deps
+4. Install tools (see `mise.toml` or your stack's package manager)
+5. Run the project
 
 ## Usage
 

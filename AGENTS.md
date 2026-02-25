@@ -80,8 +80,9 @@ the example structure does not fit.
 
 ### Step 6: Final Checks
 
+- [ ] Run `npm install` (or `pnpm install`) to install Prettier and other deps
+- [ ] Run `mise run format` — formats md, yaml, yml, json
 - [ ] Run `mise run check` (or equivalent) to verify setup
-- [ ] Run `npx prettier --check "**/*.md"` and `markdownlint-cli2 "**/*.md"`
 - [ ] Remove or update this AGENTS.md section if project-specific agent rules
       are needed
 
