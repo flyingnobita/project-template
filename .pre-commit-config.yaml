@@ -5,18 +5,18 @@
 repos:
   - repo: local
     hooks:
-      - id: mise-lint
-        name: mise run lint
-        entry: mise run lint
-        language: system
-        pass_filenames: false
-        always_run: true
+      - id: docs-fix
+        name: docs fix (prettier + markdownlint)
+        entry: scripts/precommit-docs-fix.sh
+        language: script
+        stages: [pre-commit]
       - id: mise-check
         name: mise run check
         entry: mise run check
         language: system
         pass_filenames: false
         always_run: true
+        stages: [pre-commit, pre-push]
   # Add your stack's hooks. Examples:
   # - repo: https://github.com/astral-sh/ruff-pre-commit
   #   rev: v0.8.0
@@ -27,3 +27,5 @@ repos:
   #   rev: v9.0.0
   #   hooks:
   #     - id: eslint
+
+default_install_hook_types: [pre-commit, pre-push]

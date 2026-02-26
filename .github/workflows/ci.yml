@@ -4,22 +4,9 @@
 name: CI
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  workflow_dispatch:
 
 jobs:
-  format:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: jdx/mise-action@v2
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "lts/*"
-      - run: mise run lint
-
   check:
     runs-on: ubuntu-latest
     steps:
