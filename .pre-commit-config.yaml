@@ -5,27 +5,15 @@
 repos:
   - repo: local
     hooks:
-      - id: prettier-fix
-        name: prettier (fix)
-        entry: npx prettier@3 --write "**/*.{md,yaml,yml,json}" ".prettierrc"
+      - id: mise-lint
+        name: mise run lint
+        entry: mise run lint
         language: system
         pass_filenames: false
         always_run: true
-      - id: prettier-check
-        name: prettier (check)
-        entry: npx prettier@3 --check "**/*.{md,yaml,yml,json}" ".prettierrc"
-        language: system
-        pass_filenames: false
-        always_run: true
-      - id: markdownlint-fix
-        name: markdownlint-cli2 (fix)
-        entry: npx markdownlint-cli2 --fix "**/*.md"
-        language: system
-        pass_filenames: false
-        always_run: true
-      - id: markdownlint-check
-        name: markdownlint-cli2 (check)
-        entry: npx markdownlint-cli2 "**/*.md"
+      - id: mise-check
+        name: mise run check
+        entry: mise run check
         language: system
         pass_filenames: false
         always_run: true
