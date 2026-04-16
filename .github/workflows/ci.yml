@@ -10,7 +10,7 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       # Add your stack's setup and commands. Examples:
       # Python (uv):
       #   - uses: astral-sh/setup-uv@v4
@@ -26,8 +26,8 @@ jobs:
       #   - uses: actions/setup-go@v5
       #     with: { go-version: 'stable' }
       #   - run: go test ./...
-      - uses: jdx/mise-action@v2
-      - uses: actions/setup-node@v4
+      - uses: jdx/mise-action@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: "lts/*"
       - run: mise run check
